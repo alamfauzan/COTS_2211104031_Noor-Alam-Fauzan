@@ -2,9 +2,8 @@ import 'package:cots_2211104031_nooralamfauzan/modules/onboarding/controller/onb
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../design_system/colors.dart';
-import '../../../design_system/typography.dart';
-
+import '../../../../design_system/colors.dart';
+import '../../../../design_system/typography.dart';
 
 class OnboardingView extends StatelessWidget {
   final OnboardingController controller = Get.find<OnboardingController>();
@@ -20,9 +19,9 @@ class OnboardingView extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/images/gojek.png',
+                Image.asset('../../../../asset/image/gojek.png',
                     width: 70), // Logo lebih kecil
-                Image.asset('assets/images/ind.png', width: 30),
+                Image.asset('../../../../asset/image/IND.png', width: 30),
               ],
             ),
           ),
@@ -32,22 +31,22 @@ class OnboardingView extends StatelessWidget {
               onPageChanged: (index) => controller.updateIndex(index),
               children: [
                 buildOnboardingSlide(
-                  imagePath: 'assets/images/onboarding1.png',
+                  imagePath: '../../../../asset/image/orang1.png',
                   title: 'Selamat datang di gojek!',
                   description:
-                      'Aplikasi yang bikin hidupmu lebih nyaman. Siap bantuin semua kebutuhanmu, kapanpun, dan di manapun.',
+                      'Aplikasi yang hadir untuk mempermudah hidupmu. Gojek siap menemani setiap langkahmu, memberikan solusi cepat untuk semua kebutuhan, kapan saja, di mana saja. Mulai dari perjalanan hingga layanan antar, semua ada dalam genggaman.',
                 ),
                 buildOnboardingSlide(
-                  imagePath: 'assets/images/onboarding2.png',
+                  imagePath: '../../../../asset/image/orang2.png',
                   title: 'Transportasi & logistik',
                   description:
-                      'Antarin kamu jalan atau ambilin barang lebih gampang tinggal ngeklik doang~',
+                      'Perjalanan jadi lebih mudah, barang diantar langsung ke tanganmu. Cukup klik, dan biarkan Gojek yang urus sisanya!',
                 ),
                 buildOnboardingSlide(
-                  imagePath: 'assets/images/onboarding3.png',
+                  imagePath: '../../../../asset/image/orang3.png',
                   title: 'Pesan makan & belanja',
                   description:
-                      'Lagi ngidam sesuatu? Gojek beliin gak pakai lama.',
+                      'Ngidam sesuatu? Gojek siap antar dengan cepat, jadi nggak perlu nunggu lama untuk puas!.',
                 ),
               ],
             ),

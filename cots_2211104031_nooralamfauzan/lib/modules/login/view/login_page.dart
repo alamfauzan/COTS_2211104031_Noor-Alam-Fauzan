@@ -5,7 +5,6 @@ import '../../../design_system/typography.dart';
 import '../controller/login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
-  // Menggunakan GetView untuk akses controller yang lebih mudah
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,20 +17,19 @@ class LoginPage extends GetView<LoginController> {
             children: [
               // Header
               Row(
-                mainAxisAlignment: MainAxisAlignment
-                    .spaceBetween, // Tetap gunakan spaceBetween
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: Image.asset('./../../../assets/icons/back.png',
-                        width: 24, height: 24), // Ikon kembali dari aset
+                    icon: Image.asset('assets/icons/back.png',
+                        width: 24, height: 24), // Perbaiki path gambar
                     onPressed: () => Get.back(),
                   ),
-                  Image.asset('../../../../assets/images/gojek.png',
-                      width: 90), // Gambar Gojek
+                  Image.asset('../../../../asset/image/gojek.png',
+                      width: 90), // Perbaiki path gambar
                   Spacer(),
                   IconButton(
-                    icon: Image.asset('./../../../assets/icons/tanya.png',
-                        width: 24, height: 24), // Ikon bantuan dari aset
+                    icon: Image.asset('assets/icons/tanya.png',
+                        width: 24, height: 24), // Perbaiki path gambar
                     onPressed: () {
                       // Navigasi ke halaman bantuan
                     },
@@ -66,12 +64,10 @@ class LoginPage extends GetView<LoginController> {
                   prefixIconConstraints: BoxConstraints(minWidth: 40),
                   labelText: 'Phone number',
                   border: const OutlineInputBorder(),
-                  suffixIcon: controller
-                          .phoneNumber.value.isEmpty // Penyederhanaan kondisi
+                  suffixIcon: controller.phoneNumber.value.isEmpty
                       ? null
                       : IconButton(
-                          icon: const Icon(
-                              Icons.clear), // Tambahkan const jika memungkinkan
+                          icon: const Icon(Icons.clear),
                           onPressed: () => controller.phoneNumber.value = '',
                         ),
                 ),
@@ -106,8 +102,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   child: controller.isLoading.value
-                      ? const CircularProgressIndicator(
-                          color: AppColors.white) // Tambahkan const
+                      ? const CircularProgressIndicator(color: AppColors.white)
                       : Text(
                           'Continue',
                           style:
@@ -119,23 +114,19 @@ class LoginPage extends GetView<LoginController> {
               // Keypad simulasi (opsional)
               GridView.builder(
                 shrinkWrap: true,
-                physics:
-                    const NeverScrollableScrollPhysics(), // Tambahkan const
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  // Tambahkan const
                   crossAxisCount: 3,
                   childAspectRatio: 2.5,
                 ),
                 itemCount: 12,
                 itemBuilder: (context, index) {
-                  if (index == 9)
-                    return const SizedBox(); // Kosongkan posisi, tambahkan const
+                  if (index == 9) return const SizedBox();
                   if (index == 11) {
                     return IconButton(
                       icon: const Icon(Icons.backspace,
-                          color: AppColors.greyMedium), // Tambahkan const
-                      onPressed: () => controller.phoneNumber.value =
-                          '', // Perbaikan utama disini
+                          color: AppColors.greyMedium),
+                      onPressed: () => controller.phoneNumber.value = '',
                     );
                   }
                   final number = (index == 10) ? 0 : index + 1;
@@ -153,7 +144,7 @@ class LoginPage extends GetView<LoginController> {
             ],
           ),
         ),
-     ),
+      ),
     );
   }
 }
